@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmr1yjnic71lu"]
+
+[ext_resource type="Texture2D" uid="uid://cgssdkdqdq0e7" path="res://Images/EnemyFish.png" id="1_86751"]
+[ext_resource type="Script" path="res://Fish/EnemyFish.cs" id="2_t7drm"]
+
+[node name="EnemyFish" type="Sprite2D"]
+texture = ExtResource("1_86751")
+script = ExtResource("2_t7drm")

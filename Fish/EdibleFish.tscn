@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd8fxaomtmgkc"]
+
+[ext_resource type="Texture2D" uid="uid://cwotakl6f1n2k" path="res://Images/EdibleFish.png" id="1_37f22"]
+
+[node name="EdibleFish" type="Sprite2D"]
+texture = ExtResource("1_37f22")

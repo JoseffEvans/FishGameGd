@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://8x5sbxvugao8"]
+
+[ext_resource type="Texture2D" uid="uid://crdytospkdqft" path="res://Images/playerFish.png" id="1_64prp"]
+[ext_resource type="Script" path="res://Main.cs" id="1_rv4r2"]
+[ext_resource type="Script" path="res://Player.cs" id="3_xl8ik"]
+[ext_resource type="Script" path="res://Fps.cs" id="4_b4p8d"]
+[ext_resource type="Script" path="res://Libs/Spawn.cs" id="5_33t5b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dodw"]
+font_size = 23
+
+[node name="Ocean" type="Node2D" node_paths=PackedStringArray("Player")]
+script = ExtResource("1_rv4r2")
+Player = NodePath("Player")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(576, 284)
+texture = ExtResource("1_64prp")
+script = ExtResource("3_xl8ik")
+
+[node name="FPS" type="Label" parent="."]
+offset_right = 151.0
+offset_bottom = 88.0
+text = "FPS"
+label_settings = SubResource("LabelSettings_4dodw")
+script = ExtResource("4_b4p8d")
+
+[node name="Services" type="Node" parent="."]
+
+[node name="Spawn" type="Node" parent="Services"]
+script = ExtResource("5_33t5b")
