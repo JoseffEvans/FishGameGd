@@ -32,7 +32,7 @@ public partial class Main : Node2D {
             GetTree().Quit();
 
         SecondCounter += delatF;
-        if(SecondCounter >= 0.01) {
+        if(SecondCounter >= 0.1) {
             SecondCounter = 0;
             //AddChild(Resources.NewEnemy());
             //AddChild(Resources.NewFish());

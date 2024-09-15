@@ -19,25 +19,20 @@ public partial class Player : Sprite2D {
         Velocity = new Vector2(0,0);
     }
 
-    int UpdateCount = 0;
-
     public override void _Process(double delta) {
-        if(UpdateCount++ < 120) return;
-
         var mouse = Main.Mouse
             .CalcMovementAndReset()
             .Limit(MouseInputLimit) 
             * ((float)delta * Speed);
 
         Velocity += mouse;
-        Velocity -= Velocity / 8;
+        Velocity *= 0.8f;
 
         if(Velocity.X < 0 != FlipH)
             FlipH = !FlipH;
 
         Position += Velocity;
         Rotation = Velocity.Normalized().Y * (FlipH ? -1 : 1);
-
     }
 
     Vector2 GetPlayerInput() => new Vector2(
