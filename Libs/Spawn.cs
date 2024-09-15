@@ -11,8 +11,8 @@ public class Spawn {
         Random = new Random();
     }
 
-    public SpawnInfo OffScreenSpawn(Sprite2D fish) {
-        var viewport = Main.GetViewport().GetVisibleRect().Size;
+    public SpawnInfo LeftRightSpawn(Sprite2D fish) {
+        var viewport = Main.Camera.GetViewport().GetVisibleRect().Size;
         var rect = fish.GetRect();
 
         var side = Random.Next(2) == 0;
@@ -26,4 +26,8 @@ public class Spawn {
             Goal = new Vector2(side ? right : left,y)
         };
     }
+
+    //public Vector2 OffScreenSpawn() {
+    //    var viewport = Main.Camera.GetViewport().GetVisibleRect().Size;
+    //}
 }

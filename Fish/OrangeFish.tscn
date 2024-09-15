@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://f0tgtl7wdn3"]
+
+[ext_resource type="Texture2D" uid="uid://o12ak2m0lhyf" path="res://Images/Orange.png" id="1_0tm5k"]
+[ext_resource type="Script" path="res://Fish/OrangeFish.cs" id="2_yfdpr"]
+
+[node name="OrangeFish" type="Sprite2D"]
+texture = ExtResource("1_0tm5k")
+script = ExtResource("2_yfdpr")

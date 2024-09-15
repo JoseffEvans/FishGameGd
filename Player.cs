@@ -9,7 +9,7 @@ public partial class Player : Sprite2D {
     public const string InputPlayerMoveRight= "PlayerMoveRight";
 
     public float Speed = 60;
-    public float MouseInputLimit = 20;
+    public float MouseInputLimit = 50;
 
     Main Main;
 
@@ -17,11 +17,13 @@ public partial class Player : Sprite2D {
         Main = (Main)GetParent();
     }
 
+    bool FirstUpdate = false;
+
     public override void _Process(double delta) {
         var movement = Main.Mouse
             .CalcMovementAndReset()
             .Limit(MouseInputLimit) 
-            * (float)delta * Speed;
+            * ((float)delta * Speed);
 
         if(movement.X < 0 != FlipH)
             FlipH = !FlipH;

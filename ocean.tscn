@@ -1,31 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://8x5sbxvugao8"]
+[gd_scene load_steps=8 format=3 uid="uid://8x5sbxvugao8"]
 
 [ext_resource type="Texture2D" uid="uid://crdytospkdqft" path="res://Images/playerFish.png" id="1_64prp"]
 [ext_resource type="Script" path="res://Main.cs" id="1_rv4r2"]
 [ext_resource type="Script" path="res://Player.cs" id="3_xl8ik"]
 [ext_resource type="Script" path="res://Fps.cs" id="4_b4p8d"]
 [ext_resource type="Script" path="res://Libs/Spawn.cs" id="5_33t5b"]
+[ext_resource type="Script" path="res://Camera.cs" id="6_56xts"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4dodw"]
 font_size = 23
 
-[node name="Ocean" type="Node2D" node_paths=PackedStringArray("Player")]
+[node name="Ocean" type="Node2D" node_paths=PackedStringArray("Camera", "Player")]
 script = ExtResource("1_rv4r2")
+Camera = NodePath("Camera2D")
 Player = NodePath("Player")
 
 [node name="Player" type="Sprite2D" parent="."]
-position = Vector2(576, 284)
+position = Vector2(508.475, 284)
 texture = ExtResource("1_64prp")
 script = ExtResource("3_xl8ik")
-
-[node name="FPS" type="Label" parent="."]
-offset_right = 151.0
-offset_bottom = 88.0
-text = "FPS"
-label_settings = SubResource("LabelSettings_4dodw")
-script = ExtResource("4_b4p8d")
 
 [node name="Services" type="Node" parent="."]
 
 [node name="Spawn" type="Node" parent="Services"]
 script = ExtResource("5_33t5b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_56xts")
+
+[node name="FPS" type="Label" parent="Camera2D"]
+offset_left = -577.0
+offset_top = -323.0
+offset_right = -426.0
+offset_bottom = -235.0
+text = "FPS"
+label_settings = SubResource("LabelSettings_4dodw")
+script = ExtResource("4_b4p8d")

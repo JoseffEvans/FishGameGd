@@ -15,7 +15,12 @@ public class Resources {
     }
     public Fish NewFish() => (Fish)Fish.Instantiate();
 
+    private PackedScene _orangeFish;
+    private const string OrangeLoaction = "res://Fish/OrangeFish.tscn";
+    public PackedScene OrangeFish {
+        get => _orangeFish ??= (PackedScene)ResourceLoader.Load(OrangeLoaction);
+    }
+    public OrangeFish NewOrangeFish() => (OrangeFish)OrangeFish.Instantiate();
 
     public Resources() { }
-
 }

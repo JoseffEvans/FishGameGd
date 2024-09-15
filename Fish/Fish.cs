@@ -9,7 +9,7 @@ public partial class Fish : Sprite2D {
     
     public override void _Ready() {
         Main = (Main)GetParent();
-        Spawn = Main.Spawn.OffScreenSpawn(this);
+        Spawn = Main.Spawn.LeftRightSpawn(this);
         Position = Spawn.SpawnPoint;
     }
 

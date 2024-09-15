@@ -7,11 +7,10 @@ public partial class Main : Node2D {
     public const string InputExit = "Exit";
 
     [Export]
+    public Camera Camera;
+    [Export]
     public Player Player;
-    List<Sprite2D> Fish;
-
     float SecondCounter;
-    Random Random;
 
     // Servics
     public Resources Resources;
@@ -20,11 +19,10 @@ public partial class Main : Node2D {
 
     public override void _Ready() {
         SecondCounter = 0;
-        Fish = new List<Sprite2D>();
-        Random = new Random();
         Resources = new Resources();
         Spawn = new Spawn(this);
         Mouse = new MouseControl(this);
+        Input.MouseMode = Input.MouseModeEnum.Hidden;
     }
 
     public override void _Process(double delta) {
@@ -36,8 +34,9 @@ public partial class Main : Node2D {
         SecondCounter += delatF;
         if(SecondCounter >= 0.01) {
             SecondCounter = 0;
-            AddChild(Resources.NewEnemy());
-            AddChild(Resources.NewFish());
+            //AddChild(Resources.NewEnemy());
+            //AddChild(Resources.NewFish());
+            AddChild(Resources.NewOrangeFish());
         }
     }
 }

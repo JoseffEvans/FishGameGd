@@ -4,6 +4,11 @@ using Godot;
 public static class MathExt {
     public static float Abs(this float x) => Math.Abs(x);
 
+    public static float Pow(this float x, float pow) => (float)Math.Pow(x, pow);
+
+    public static Vector2 Pow(this Vector2 v,float pow) =>
+        new(v.X.Pow(pow), v.Y.Pow(pow));
+
     /// <summary>
     /// Limit movement in either direction
     /// 12f.Limit(10f) => 10 <br/>
