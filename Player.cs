@@ -10,25 +10,34 @@ public partial class Player : Sprite2D {
 
     public float Speed = 60;
     public float MouseInputLimit = 50;
+    public Vector2 Velocity;
 
     Main Main;
 
     public override void _Ready() {
         Main = (Main)GetParent();
+        Velocity = new Vector2(0,0);
     }
 
-    bool FirstUpdate = false;
+    int UpdateCount = 0;
 
     public override void _Process(double delta) {
-        var movement = Main.Mouse
+        if(UpdateCount++ < 120) return;
+
+        var mouse = Main.Mouse
             .CalcMovementAndReset()
             .Limit(MouseInputLimit) 
             * ((float)delta * Speed);
 
-        if(movement.X < 0 != FlipH)
+        Velocity += mouse;
+        Velocity -= Velocity / 8;
+
+        if(Velocity.X < 0 != FlipH)
             FlipH = !FlipH;
 
-        Position += movement;
+        Position += Velocity;
+        Rotation = Velocity.Normalized().Y * (FlipH ? -1 : 1);
+
     }
 
     Vector2 GetPlayerInput() => new Vector2(

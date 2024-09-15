@@ -14,7 +14,7 @@ public class MouseControl {
         Main.GetViewport().GetVisibleRect().Size / 2;
 
     public Vector2 CalcMovementAndReset() {
-        var movement = Main.GetViewport().GetMousePosition() - PrevPos;
+        var movement = Main.Camera.GetViewport().GetMousePosition() - PrevPos;
         var mouseLock = CalcLockPosition();
 
         Input.WarpMouse(mouseLock);

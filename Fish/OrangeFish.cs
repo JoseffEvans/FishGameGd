@@ -10,7 +10,7 @@ public partial class OrangeFish : Sprite2D {
         Random = new Random();
 
         var distance = Main.Camera.GetViewport().GetVisibleRect().Size.X 
-            * (float)(Random.NextDouble() + 1 * 3);
+            * (float)(Random.NextDouble() /*+ 1 * 3*/);
 
         var direction = new Vector2(
             (float)Random.NextDouble() * 2 - 1,
